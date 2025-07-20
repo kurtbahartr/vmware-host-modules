@@ -1,0 +1,38 @@
+# VMware Host Modules by Bahar KURT
+
+This repository is made for providing VMware host modules (namely `vmmon` and `vmnet`) patched for use in newer Linux kernel versions.
+
+# Why
+
+Because I use Fedora and I need VMware Workstation for virtual machine shenanigans. Because there's no repo that provides such a thing (yet) (not counting AUR since you still need to figure out where to find the modules to patch), I had to make my own for ease.
+
+# Installation
+
+Clone the repository:
+```
+git clone https://github.com/kurtbahartr/vmware-host-modules -b workstation-<version> --depth=1
+```
+
+Make sure you fill the `<version>` placeholder with your **exact** VMware Workstation Pro version. Such as `17.6.4`.
+
+> [!NOTE]
+> If you use a version of Workstation that's not yet added to this repository, you can simply run the `extract-and-patch-modules.sh` script and let it handle the preparation for you. It would be much appreciated if you could also create a PR while at it.
+
+Build the kernel modules:
+```
+make
+```
+
+> [!WARNING]
+> If the build fails, it means your kernel is either too new or too old for this to compile. Please create an issue on this repository if this happens so that I can look into it and add new patches.
+
+Install the kernel modules:
+```
+sudo make install
+```
+
+# Credits
+
+- **Broadcom** for VMware Workstation Pro for Linux.
+- **[@mkubecek](https://github.com/mkubecek)** for [his work for the same](https://github.com/mkubecek/vmware-host-modules).
+- **[@julianxhokaxhiu](https://github.com/julianxhokaxhiu)** for maintaining [`vmware-workstation` AUR package](https://aur.archlinux.org/packages/vmware-workstation). This repo would be impossible without his PKGBUILD and included patches.
