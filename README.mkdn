@@ -2,6 +2,9 @@
 
 This repository is made for providing VMware host modules (namely `vmmon` and `vmnet`) patched for use in newer Linux kernel versions.
 
+> [!WARNING]
+> The patched `vmnet` module bricks `lshw`'s network probation. One solution is to pass `-disable network` as a parameter to `lshw` if you have nothing to do with networking. See [this bug report in Ubuntu Launchpad](https://bugs.launchpad.net/ubuntu/+source/lshw/+bug/2069649) for more info.
+
 # Why
 
 Because I use Fedora and I need VMware Workstation for virtual machine shenanigans. Because there's no repo that provides such a thing (yet) (not counting AUR since you still need to figure out where to find the modules to patch), I had to make my own for ease.
