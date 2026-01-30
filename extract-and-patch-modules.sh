@@ -5,6 +5,6 @@ for i in vmmon vmnet; do
   tar -xvf /usr/lib/vmware/modules/source/$i.tar
 done
 
-for i in vmmon vmnet linux6_15 linux6_16; do
-  patch -p1 < patches/$i.patch
+for i in vmmon vmnet; do
+  patch -p1 <patches/$i.patch
 done
